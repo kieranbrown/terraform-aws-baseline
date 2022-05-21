@@ -7,6 +7,8 @@ module "secure_baseline" {
   region                          = data.aws_region.current.name
   support_iam_role_principal_arns = [data.aws_caller_identity.current.arn]
 
+  max_password_age = 90
+
   providers = {
     aws                = aws
     aws.ap-northeast-1 = aws.ap-northeast-1
