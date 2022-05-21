@@ -5,13 +5,13 @@ module "secure_baseline" {
   audit_log_bucket_name           = "audit-logs-${data.aws_caller_identity.current.account_id}"
   aws_account_id                  = data.aws_caller_identity.current.account_id
   region                          = data.aws_region.current.name
-  support_iam_role_principal_arns = [data.aws_caller_identity.current.arn]
+  support_iam_role_principal_arns = [data.aws_caller_identity.current.account_id]
 
   # https://github.com/nozaq/terraform-aws-secure-baseline/issues/229
   alarm_sns_topic_kms_master_key_id  = "alias/aws/sns"
   config_sns_topic_kms_master_key_id = "alias/aws/sns"
 
-  max_password_age                   = 90
+  max_password_age = 90
 
   providers = {
     aws                = aws
