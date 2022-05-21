@@ -7,7 +7,11 @@ module "secure_baseline" {
   region                          = data.aws_region.current.name
   support_iam_role_principal_arns = [data.aws_caller_identity.current.arn]
 
-  max_password_age = 90
+  # https://github.com/nozaq/terraform-aws-secure-baseline/issues/229
+  alarm_sns_topic_kms_master_key_id  = "alias/aws/sns"
+  config_sns_topic_kms_master_key_id = "alias/aws/sns"
+
+  max_password_age                   = 90
 
   providers = {
     aws                = aws
