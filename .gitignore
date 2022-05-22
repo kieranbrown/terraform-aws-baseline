@@ -1,1 +1,5 @@
 .terraform/
+
+.terraform.lock.hcl
+!/.terraform.lock.hcl
+!/secure-baseline/.terraform.lock.hcl

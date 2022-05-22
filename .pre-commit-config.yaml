@@ -1,0 +1,23 @@
+repos:
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 2.4.0
+    hooks:
+      - id: editorconfig-checker
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.71.0
+    hooks:
+      - id: terraform_checkov
+        args:
+          [--args=--compact, --args=--framework=terraform, --args=--quiet]
+      - id: terraform_fmt
+      - id: terraform_tflint
+        args: [--args=--module]
+      - id: terraform_tfsec
+      - id: terraform_validate
+      - id: terrascan
+        args:
+          - --args=--iac-type=terraform
+          - --args=--non-recursive
+          - --args=--skip-rules=AC_AWS_0207
+          - --args=--use-terraform-cache
+          - --args=--verbose
