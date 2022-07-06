@@ -1,6 +1,6 @@
 module "secure_baseline" {
   source  = "nozaq/secure-baseline/aws"
-  version = "1.1.0"
+  version = "2.0.0"
 
   audit_log_bucket_name           = "audit-logs-${data.aws_caller_identity.current.account_id}"
   aws_account_id                  = data.aws_caller_identity.current.account_id
@@ -12,6 +12,9 @@ module "secure_baseline" {
   config_sns_topic_kms_master_key_id = "alias/aws/sns"
 
   max_password_age = 90
+
+  config_baseline_enabled = false
+  securityhub_enabled     = false
 
   providers = {
     aws                = aws
