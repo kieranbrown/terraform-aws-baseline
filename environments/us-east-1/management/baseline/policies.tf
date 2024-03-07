@@ -1,5 +1,12 @@
 data "aws_organizations_organization" "current" {}
 
+# required for terraform-aws-networking
+resource "aws_ram_sharing_with_organization" "this" {
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
 // This is required for using the "aws_organizations_organization" data source to programatically list accounts
 resource "aws_organizations_resource_policy" "list_accounts" {
   content = jsonencode({
