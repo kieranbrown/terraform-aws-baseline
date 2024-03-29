@@ -46,7 +46,8 @@ generate "provider" {
   path      = "provider.tf"
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
-provider "aws" {
+%{ for provider in ["aws", "awsutils"] }
+provider "${provider}" {
   region = "${local.aws_region}"
 
 %{ if local.aws_assume_role != null }
@@ -60,7 +61,7 @@ provider "aws" {
   }
 }
 
-provider "aws" {
+provider "${provider}" {
   alias  = "management"
   region = "${local.aws_region}"
 
@@ -70,7 +71,7 @@ provider "aws" {
 }
 
 %{ for region in ["eu-west-2", "us-east-1"] }
-provider "aws" {
+provider "${provider}" {
   alias  = "management-${region}"
   region = "${region}"
 
@@ -78,6 +79,7 @@ provider "aws" {
     tags = ${jsonencode(local.default_tags)}
   }
 }
+%{ endfor }
 %{ endfor }
 EOF
 }
@@ -93,6 +95,10 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 5.0"
+    }
+    awsutils = {
+      source = "cloudposse/awsutils"
+      version = ">= 0.1.0"
     }
   }
 }
