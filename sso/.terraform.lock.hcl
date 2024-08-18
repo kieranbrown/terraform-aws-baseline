@@ -6,6 +6,7 @@ provider "registry.terraform.io/cloudposse/awsutils" {
   constraints = ">= 0.1.0"
   hashes = [
     "h1:1CVglOJAw/x4yxVsV0KAPKvtrp/KyhCeGQdU6Ur/6pY=",
+    "h1:nMZwIjRdLly3P8S7mc3zqJJKCGkBi+jX28LsAp11nLo=",
     "zh:12d449b2dae49ce419e36022bf2456c77a717408b8908a382916b5a512cf64d5",
     "zh:68d2228af5df9cd3e44d04781797ccfc313f4054841910af5e0b30eab61f3781",
     "zh:9e4e9f0f6d0606165b17a4c0f2055745befee6e398e47a2112bf70f8e79077e7",
@@ -20,6 +21,7 @@ provider "registry.terraform.io/hashicorp/aws" {
   constraints = "~> 5.0"
   hashes = [
     "h1:3w6NCYy+mbc9odXmM7K5Xag2ggtapraacZqJR3WpJKc=",
+    "h1:g+aulJVHZfXjrC06odZcQPCkNZqD2jiJGsxGnh34Tmw=",
     "zh:07fb2abb9cf4d2042b41b2b2c642d4c4bd2feccbd856cd7040a7d15158fed478",
     "zh:1373339e796d8d8473c267c0ecddb701559fce454c2cdd192cf8b0eadf759b48",
     "zh:1644b4e0fd2e0b28d465bb5cf08b1f594a623324d176e879e5052f78cd2ea8cb",

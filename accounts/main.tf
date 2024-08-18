@@ -10,6 +10,9 @@ resource "aws_organizations_organizational_unit" "this" {
 
 resource "aws_organizations_account" "this" {
   for_each = {
+    "Bat Enjoyers Discord Bot" = {
+      organizational_unit = "Workloads"
+    }
     Management = {}
     Networking = {
       organizational_unit = "Infrastructure"
@@ -20,7 +23,7 @@ resource "aws_organizations_account" "this" {
   }
 
   name  = each.key
-  email = sensitive(lookup(each.value, "email", format(var.email_spec, lower(each.key))))
+  email = sensitive(lookup(each.value, "email", format(var.email_spec, lower(replace(each.key, " ", "-")))))
 
   iam_user_access_to_billing = "ALLOW"
 
