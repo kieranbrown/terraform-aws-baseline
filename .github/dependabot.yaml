@@ -1,0 +1,27 @@
+version: 2
+
+updates:
+  - package-ecosystem: github-actions
+    directories:
+      - "/"
+      - "/.github/actions/**"
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      gha:
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: terraform
+    directories:
+      - "**/*"
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      terraform:
+        update-types:
+          - minor
+          - patch
