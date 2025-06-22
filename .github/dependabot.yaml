@@ -16,7 +16,7 @@ updates:
 
   - package-ecosystem: terraform
     directories:
-      - "**/*"
+      - /**
     schedule:
       interval: weekly
       day: monday
