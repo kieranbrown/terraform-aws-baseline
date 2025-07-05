@@ -2,6 +2,14 @@ name: Dependabot auto-merge
 
 on:
   pull_request:
+    paths:
+      - '.github/actions/**/*'
+      - '.github/workflows/**/*'
+      - '**/.terraform.lock.hcl'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   auto-merge:
