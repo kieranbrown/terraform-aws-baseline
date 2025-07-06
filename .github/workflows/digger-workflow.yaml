@@ -17,5 +17,6 @@ jobs:
       actions: write       # required for plan persistence
       contents: write      # required to merge PRs
       id-token: write      # required for workload-identity-federation
+      issues: write        # required to create drift issues
       pull-requests: write # required to post PR comments
       statuses: write      # required to validate combined PR status
