@@ -7,10 +7,6 @@ on:
       - '.github/workflows/**/*'
       - '**/.terraform.lock.hcl'
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   auto-merge:
     uses: kieranbrown/github-actions/.github/workflows/dependabot-auto-merge.yaml@v1
